@@ -19,7 +19,7 @@ body {
   scroll-behavior: smooth;
 }
 /* MediaQuery max-width: 600px */
-@media all and (max-width: 320px) {
+@media all and (max-width: 360px) {
   .header-fixed {
     display: flex;
     width: 100%;
