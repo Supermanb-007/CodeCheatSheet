@@ -4,13 +4,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Cheat Sheet </title>
-    <script src="assets/scripts/flickity.min.js"></script>
+    <!-- preloading stylesheets and scripts for performance -->
+    <link rel="preload" href="assets/scripts/flickity.min.js" as="script">
+    <link rel="preload" href="assets/css/main.css" as="style">
+
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/flickity.css" />
-    <script>
-      var dev = { "name": "Code Cheat Sheet", "author": "Aditya Bhujbal", "url":
-      "", settings:{ initSliders: true, } };
-    </script>
   </head>
   <body>
     <header class="header-fixed">
@@ -278,10 +279,12 @@
 
       </div>
     </main>
-
-    <!-- You need this element to prevent the content of the page from jumping up -->
-    <div class="header-fixed-placeholder"></div>
   </body>
+  <!-- Scripts -->
+  <script>
+    var dev = { "name": "Code Cheat Sheet", "author": "Aditya Bhujbal", "settings" :{ initSliders: true, } };
+  </script>
   <script src="../assets/scripts/jquery.min.js"></script>
+  <script src="../assets/scripts/flickity.min.js"></script>
   <script src="../assets/scripts/main.js"></script>
 </html>
