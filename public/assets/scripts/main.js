@@ -25,21 +25,32 @@ $(document).ready(function () {
     const selectors ={
       headerElement : '.header-fixed',
       headerTransparent : '.header-transparent',
+      headerMobileNavigation: '.Header__menu--mobile',
+      toggleMobileNavigation: '.Header__menu--mobile-trigger',
+      mobileMenuToggle: "[data-toggle='mobile-menu']",
+      mobileMenuDrawer: ".Drawer.Header__mobile-drawer",
+      mobileMenuClose: "[data-mobile-nav-close]",
+      mobileMenuActive: "Header__mobile-menu--active",
     }
     function Header(){
       this.header = document.querySelector(selectors.headerElement);
-      console.log(this.header);
       this.headerHeight = this.header.offsetHeight;
       this.init();
     }
     Header.prototype = Object.assign({}, Header.prototype, {
       init: function () {
         window.addEventListener('scroll', this.handleScroll.bind(this));
+        this.header.querySelector(selectors.mobileMenuToggle).addEventListener('click', this.toggleMobileMenu.bind(this));
+        this.header.querySelector(selectors.mobileMenuClose).addEventListener('click', this.toggleMobileMenu.bind(this));
       },
       handleScroll: function (e) {
         this.pageY = window.pageYOffset;
-        console.log(this.pageY);
         this.pageY > this.headerHeight ? this.header.classList.add('header-transparent') : this.header.classList.remove('header-transparent');
+      },
+      toggleMobileMenu: function () {
+        this.header.classList.toggle(selectors.mobileMenuActive);
+        document.querySelector("body").classList.toggle("Drawer--open");
+        this.header.querySelector(selectors.mobileMenuDrawer).classList.toggle("active")
       }
     });
 
